@@ -1,0 +1,32 @@
+services:
+
+  {{ pv_prefix | lower }}-ea-test-01:
+
+    extends:
+      service: linux_ioc
+      file: ../../include/ioc.yml
+
+    image: ghcr.io/epics-containers/ioc-template-example-runtime:3.5.1
+
+    labels:
+      version: 0.1.0
+
+    environment:
+      IOCSH_PS1: {{ pv_prefix | lower }}-ea-test-01 >
+      IOC_NAME: {{ pv_prefix | lower }}-ea-test-01
+      IOC_PREFIX: {{ pv_prefix }}-EA-TEST-01
+
+    volumes:
+      - ../../opi/iocs/{{ pv_prefix | lower }}-ea-test-01:/epics/opi
+
+    configs:
+      - source: {{ pv_prefix | lower }}-ea-test-01_config
+        target: epics/ioc/config
+
+configs:
+  {{ pv_prefix | lower }}-ea-test-01_config:
+    file: ./config
+
+include:
+  - path:
+      ../../include/networks.yml
