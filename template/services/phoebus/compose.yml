@@ -33,3 +33,7 @@ services:
 configs:
   phoebus_config:
     file: ./config
+
+include:
+  - path:
+      ../../include/networks.yml
