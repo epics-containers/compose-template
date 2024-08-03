@@ -17,17 +17,6 @@ services:
     {% endif %}
   default: t01
 
-pv_prefix:
-  type: str
-  help: |
-    A PV prefix for the example IOC to use, eg. BL01T
-  validator: >-
-    {% if not (pv_prefix | regex_search('^[a-zA-Z][A-Za-z-0-9]+$')) %}
-    {{pv_prefix}} must be alphanumeric and start with a letter,
-    it may also contain hyphens
-    {% endif %}
-  default: BL01T
-
 description:
   type: str
   help: A One line description of the module

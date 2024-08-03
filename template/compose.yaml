@@ -17,7 +17,7 @@
 
 include:
     # all profiles
-    - services/{{ pv_prefix | lower }}-ea-test-01/compose.yml
+    - services/example-test-01/compose.yml
     - services/gateway/compose.yml
 
     # develop profile only

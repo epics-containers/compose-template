@@ -1,26 +1,27 @@
-record(calc, "{{ pv_prefix }}:SUM") {
+record(calc, "EXAMPLE:SUM") {
   field(DESC, "Sum A and B")
   field(CALC, "A+B")
-  field(INPA, "{{ pv_prefix }}:A")
-  field(INPB, "{{ pv_prefix }}:B")
+  field(INPA, "EXAMPLE:A")
+  field(INPB, "EXAMPLE:B")
+  field(PINI, "YES")
 }
 
-record(ao, "{{ pv_prefix }}:A") {
+record(ao, "EXAMPLE:A") {
     field(DESC, "A voltage")
     field(PREC, "3")
     field(EGU,  "Volts")
     field(DRVL, "-10")
     field(DRVH, "+10")
     field(VAL,  "0.000")
-    field(FLNK, "{{ pv_prefix }}:SUM")
+    field(FLNK, "EXAMPLE:SUM")
 }
 
-record(ao, "{{ pv_prefix }}:B") {
+record(ao, "EXAMPLE:B") {
     field(DESC, "B voltage")
     field(PREC, "3")
     field(EGU,  "Volts")
     field(DRVL, "-10")
     field(DRVH, "+10")
     field(VAL,  "0.000")
-    field(FLNK, "{{ pv_prefix }}:SUM")
+    field(FLNK, "EXAMPLE:SUM")
 }
