@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Saved on 2024-08-01 08:16:13 by root-->
 <display version="2.0.0">
-  <name>{{pv_prefix}} Example IOC</name>
+  <name>Example IOC</name>
   <width>300</width>
   <height>300</height>
   <grid_step_x>4</grid_step_x>
@@ -34,7 +34,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry</name>
-    <pv_name>{{pv_prefix}}:A</pv_name>
+    <pv_name>EXAMPLE:A</pv_name>
     <x>156</x>
     <y>60</y>
   </widget>
@@ -47,7 +47,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry_1</name>
-    <pv_name>{{pv_prefix}}:SUM</pv_name>
+    <pv_name>EXAMPLE:SUM</pv_name>
     <x>156</x>
     <y>134</y>
     <precision>3</precision>
@@ -61,7 +61,7 @@
   </widget>
   <widget type="textentry" version="3.0.0">
     <name>Text Entry_2</name>
-    <pv_name>{{pv_prefix}}:B</pv_name>
+    <pv_name>EXAMPLE:B</pv_name>
     <x>156</x>
     <y>96</y>
   </widget>
