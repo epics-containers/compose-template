@@ -19,22 +19,18 @@ if [[ $(module avail docker-compose 2>/dev/null) != "" ]] ; then
     module load docker-compose
 fi
 
-function check_docker {
-    # return 0 if docker is detected, or 1 otherwise,
-    # cope with the possibility that podman is aliased to docker
-    if [[ $(docker version) =~ "Docker" ]]&> /dev/null; then
-        return 0
-    fi
-    return 1
-}
-
-# set user id for the phoebus container for easy X11 forwarding.
-if check_docker; then
-    USER_ID=$(id -u); USER_GID=$(id -g)
-else
-    alias docker=podman
+# podman vs docker differences.
+if podman version &> /dev/null; then
     USER_ID=0; USER_GID=0
+    DOCKER_HOST=unix:///run/user/$(id -u)/podman/podman.sock
+    docker=podman
+else
+    USER_ID=$(id -u); USER_GID=$(id -g)
+    unset DOCKER_HOST
+    docker=docker
 fi
+
+echo using $docker as container engine
 
 # ensure local container users can access X11 server
 xhost +SI:localuser:$(id -un)
